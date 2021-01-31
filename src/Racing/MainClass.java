@@ -17,7 +17,7 @@ public class MainClass {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(4);
 
         for (int i = 0; i < cars.length; i++) {
-            cars[i] = new Car(race, 20 + (int) (Math.random() * 10), cyclicBarrier);
+            cars[i] = new Car(race, 20 + (int) (Math.random() * 10));
         }
 
         if(!cyclicBarrier.isBroken()) {

@@ -1,7 +1,6 @@
 package Racing;
 
 import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
 
 public class Car implements Runnable {
 
@@ -18,7 +17,7 @@ public class Car implements Runnable {
     public int getSpeed() {
         return speed;
     }
-    public Car(Race race, int speed, CyclicBarrier barrier) {
+    public Car(Race race, int speed) {
         this.race = race;
         this.speed = speed;
         CARS_COUNT++;
