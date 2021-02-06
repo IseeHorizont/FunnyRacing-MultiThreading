@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.logging.Level;
+
+import static Racing.MainClass.logger;
 
 public class Race {
+
     private ArrayList<Stage> stages;
     private AtomicReference<Car> winner;
 
@@ -23,6 +27,7 @@ public class Race {
         boolean res = this.winner.compareAndSet(null, winner);
         if(res){
             System.out.println(winner.getName() + " - WIN");
+            logger.log(Level.SEVERE, "winner.getName() + \" - WIN\"");
         }
         return res;
     }
@@ -32,6 +37,7 @@ public class Race {
 
         private Signal(String message, int size) {
             this.barrier = new CyclicBarrier(size, () -> System.out.println(message));
+            logger.log(Level.SEVERE, message);
         }
 
         public CyclicBarrier getBarrier() {
